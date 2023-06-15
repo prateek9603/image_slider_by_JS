@@ -22,10 +22,11 @@ window.onload = () =>{
 prev.onclick = (e)=> {
 
     e.preventDefault();
-    if(currentslide === 1){
-        imgcontainers.style.transition="none"
-        currentslide = Number(images.length - 1);
-    }else imgcontainers.style.transition = "all 1s";
+    // if(currentslide === 1){
+    //     imgcontainers.style.transition="none"
+    //     currentslide = Number(images.length - 1);
+    // }else 
+    imgcontainers.style.transition = "all 1s";
 
 
     // imgcontainers.style.transition = "all 0.5s"
@@ -40,10 +41,11 @@ next.onclick = (e) => {
 
     e.preventDefault();
 
-    if(currentslide === Number(images.length - 2)){
-        imgcontainers.style.transition="none"
-        currentslide = 0 ;
-    }else imgcontainers.style.transition = "all 1s";
+    // if(currentslide === Number(images.length - 2)){
+    //     imgcontainers.style.transition="none"
+    //     currentslide = 0 ;
+    // }else 
+    imgcontainers.style.transition = "all 1s";
 
     // imgcontainers.style.transition = "all 0.5s"
     imgcontainers.style.transform = " translateX(-" + sliderdiv.clientWidth * (currentslide + 1) +"px)";
@@ -57,11 +59,25 @@ next.onclick = (e) => {
     
 // }
 
-imgcontainers.addEventListener ("transitionend" , () => {
+imgcontainers.addEventListener ("transitionend" , (handel) => {
 
+    if(images[currentslide].id === "first-image"){
+        currentslide = 1;
+    }
+
+
+    if(images[currentslide].id === "last-image"){
+        currentslide = images.length - 2;
+    }
+
+    imgcontainers.style.transition = "none";
+
+
+    imgcontainers.style.transform = "translateX(-" + sliderdiv.clientWidth * currentslide + "px)";
             
 
 })
+
 
 
 
