@@ -5,6 +5,7 @@ let images = document.querySelectorAll("img");
 
 const prev = document.querySelector("a:first-of-type")
 const next = document.querySelector("a:last-of-type")
+
 let currentslide = 0 ;
 
 images.forEach((img) => {
